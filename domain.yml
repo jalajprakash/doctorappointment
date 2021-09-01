@@ -1,0 +1,89 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - head
+  - stomach
+  - limbs
+  - bot_challenge
+  - out_of_scope
+  - tell_name:
+      use_entities:
+        - name
+  - mobile_number:
+      use_entities:
+        - number
+
+entities:
+  - name
+  - number
+
+slots:
+  name: 
+    type: text
+  number:
+    type: text
+
+responses:
+  utter_greet:
+  - text: "Hey! Welcome to the RasaDaas hospital! Is it an Emergency?"
+
+  utter_confirm_emergency:
+  - text: "Emergency Services have been dispatched to your location. Please contact us on 999x999x999 right away!"
+
+  utter_what_symptoms:
+  - text: "Where in the body are you facing discomfort? Head | Stomach | Limbs ?"
+
+  utter_head_doctor:
+  - text: "If you are facing headache or any other issue with your head, it would be best to schedule an appointment with Dr Head at 99xx99"
+
+  utter_stomach_doctor:
+  - text: "If you are facing stomachache or any other issue with your stomach, it would be best to schedule an appointment with Dr Body at 88xx88"
+
+  utter_limbs_doctor:
+  - text: "If you are facing acheing in your arms or legs or any other issue with the rest of your body, it would be best to schedule an appointment with Dr Head at 77xx77"
+
+  utter_more_help:
+  - text: "Do you need more help?"
+
+  utter_ask_continue:
+  - text: "Sorry, I don't quite understand. Do you want to continue?"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_name:
+  - text: What is your name?
+
+  utter_ask_number:
+  - text: What is your mobile number?
+
+  utter_thanks:
+  - text: Thanks for providing values.
+
+  utter_details_thanks:
+  - text: "Thanks for providing the given details \nName: {Name}, \nMobile Number: {Mobile_number}"
+
+actions:
+  - action_submit
+
+forms:
+  user_details_form:
+    name:
+      - type: from_entity
+        entity: name
+    number:
+      - type: from_entity
+        entity: number
+
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
