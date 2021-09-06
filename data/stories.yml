@@ -2,13 +2,6 @@ version: "2.0"
 
 stories:
 
-# - story: emergency
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - intent: affirm
-#   - action: utter_confirm_emergency
-
 - story: out of scope stop
   steps:
   - intent: out_of_scope
@@ -22,6 +15,14 @@ stories:
   - action: utter_ask_continue
   - intent: affirm
   - action: utter_greet
+
+# - story: emergency
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: affirm
+#   - action: utter_confirm_emergency
+
 
 # - story: happy path
 #   steps:

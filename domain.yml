@@ -13,41 +13,38 @@ intents:
   - tell_name:
       use_entities:
         - name
-  - mobile_number:
+  - tell_age:
       use_entities:
-        - number
+        - age
+  - tell_issue:
+      use_entities:
+        - issue
+  - tell_availability:
+      use_entities:
+        - availability
+
 
 entities:
   - name
-  - number
+  - age
+  - issue
+  - availability
+
 
 slots:
   name: 
     type: text
-  number:
+  age:
     type: text
+  issue:
+    type: text
+  availability:
+    type: text
+
 
 responses:
   utter_greet:
-  - text: "Hey! Welcome to the RasaDaas hospital! Is it an Emergency?"
-
-  utter_confirm_emergency:
-  - text: "Emergency Services have been dispatched to your location. Please contact us on 999x999x999 right away!"
-
-  utter_what_symptoms:
-  - text: "Where in the body are you facing discomfort? Head | Stomach | Limbs ?"
-
-  utter_head_doctor:
-  - text: "If you are facing headache or any other issue with your head, it would be best to schedule an appointment with Dr Head at 99xx99"
-
-  utter_stomach_doctor:
-  - text: "If you are facing stomachache or any other issue with your stomach, it would be best to schedule an appointment with Dr Body at 88xx88"
-
-  utter_limbs_doctor:
-  - text: "If you are facing acheing in your arms or legs or any other issue with the rest of your body, it would be best to schedule an appointment with Dr Head at 77xx77"
-
-  utter_more_help:
-  - text: "Do you need more help?"
+  - text: "Hey! Welcome to the RasaDaas hospital! Please share some details to schedule an appointment"
 
   utter_ask_continue:
   - text: "Sorry, I don't quite understand. Do you want to continue?"
@@ -61,14 +58,20 @@ responses:
   utter_ask_name:
   - text: What is your name?
 
-  utter_ask_number:
-  - text: What is your mobile number?
+  utter_ask_age:
+  - text: What is your age?
+
+  utter_ask_issue:
+  - text: Can you please describe what issue you are facing?
+
+  utter_ask_availability:
+  - text: When are you available for an appointment?
 
   utter_thanks:
   - text: Thanks for providing values.
 
   utter_details_thanks:
-  - text: "Thanks for providing the given details \nName: {Name}, \nMobile Number: {Mobile_number}"
+  - text: "Thanks for providing the details. We have scheduled an appointment for you according to your availability. \nName: {Name}, \nAge: {Age}, \nIssue: {Issue}, \nAvailability: {Availability}"
 
 actions:
   - action_submit
@@ -78,9 +81,16 @@ forms:
     name:
       - type: from_entity
         entity: name
-    number:
+    age:
       - type: from_entity
-        entity: number
+        entity: age
+    issue:
+      - type: from_entity
+        entity: issue
+    availability:
+      - type: from_entity
+        entity: availability
+
 
 
 

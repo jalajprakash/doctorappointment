@@ -21,7 +21,7 @@ class ValidateRestaurantForm(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[EventType]:
-            required_slots = ["name", "number"]
+            required_slots = ["name", "age", "issue", "availability"]
 
             for slot_name in required_slots:
                 if tracker.slots.get(slot_name) is None:
@@ -42,6 +42,6 @@ class ActionSubmit(Action):
         domain: "DomainDict",
     ) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(template="utter_details_thanks", Name=tracker.get_slot("name"), Mobile_number=tracker.get_slot("number"))
+        dispatcher.utter_message(template="utter_details_thanks", Name=tracker.get_slot("name"), Age=tracker.get_slot("age"), Issue=tracker.get_slot("issue"), Availability=tracker.get_slot("availability"))
 
         

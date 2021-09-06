@@ -50,30 +50,6 @@ nlu:
     - no way
     - not really
 
-- intent: head
-  examples: |
-    - head
-    - headache
-    - h
-    - my head
-  
-- intent: stomach
-  examples: |
-    - stomach
-    - my stomach
-    - tummy
-    - stomache
-
-- intent: limbs
-  examples: |
-    - limbs
-    - arms
-    - legs
-    - wrist
-    - limb
-    - arm
-    - leg
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
@@ -114,11 +90,36 @@ nlu:
     - [ashish]{"entity":"name","value":"ashish"} is my name
     - [ashish]{"entity":"name","value":"ashish"} this side
     - people call me [ashish]{"entity":"name","value":"ashish"}
+    - [vikram]{"entity":"name","value":"ashish"}
 
-- intent: mobile_number
+- intent: tell_age
   examples: |
-    - my number is [8654521312]{"entity":"number"}
-    - [8654521312]{"entity":"number"}
-    - [8654521312]{"entity":"number"} is my number
-    - my mobile number is [8654521312]{"entity":"number"}
+    - I am [25]{"entity":"age"} years old
+    - my age is [25]{"entity":"age"}
+    - [21]{"entity":"age"}
+    - I am [21]{"entity":"age"}
 
+
+- intent: tell_issue
+  examples: |
+    - I have a [headache]{"entity":"issue"}
+    - I have a [stomachache]{"entity":"issue"}
+    - My [head is hurting]{"entity":"issue"}
+    - My [legs are hurting]{"entity":"issue"}
+    - I have a [cough]{"entity":"issue"}
+    - [ache]{"entity":"issue"}
+    - My [hand is broken]{"entity":"issue"}
+    - I have a [sore throat]{"entity":"issue"}
+    - I am experiencing [shortness of breath]{"entity":"issue"}
+    - It’s [difficult to breathe]{"entity":"issue"}
+    - I feel [pain in my chest]{"entity":"issue"}
+
+- intent: tell_availability
+  examples: |
+    - I am available [next week]{"entity":"availability"}
+    - I can [tomorrow]{"entity":"availability"}
+    - I should be able to come [next month]{"entity":"availability"}
+    - Please schedule me for [day after tomorrow]{"entity":"availability"}
+    - [next week]{"entity":"availability"}
+
+ 
